@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Student Dashboard</h1>
+<h2>Choose a subject to take the quiz:</h2>
+<ul>
+    <li><a href="{{ url_for('quiz', subject_id=0) }}">Mixed Quiz</a></li>
+    {% for subject in subjects %}
+    <li><a href="{{ url_for('quiz', subject_id=subject.id) }}">{{ subject.name }} - {{subject.id}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

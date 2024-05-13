@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+<h2>Educators:</h2>
+<ul>
+    {% for educator in educators %}
+    <li>{{ educator.username }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('add_educator') }}" class="btn btn-primary">Add Educator</a>
+<a href="{{ url_for('add_subject') }}" class="btn btn-primary">Add Subject</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Question</h1>
+<form method="POST" action="{{ url_for('add_question') }}">
+    <div class="mb-3">
+        <label for="question_text" class="form-label">Question Text</label>
+        <textarea class="form-control" id="question_text" name="question_text" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="options" class="form-label">Options (comma-separated)</label>
+        <input type="text" class="form-control" id="options" name="options" required>
+        <div class="form-text">Enter the options separated by commas, e.g., Option A, Option B, Option C, Option D</div>
+    </div>
+    <div class="mb-3">
+        <label for="answer" class="form-label">Answer</label>
+        <input type="text" class="form-control" id="answer" name="answer" required>
+        <div class="form-text">Enter the option letter corresponding to the correct answer, e.g., A, B, C, or D</div>
+    </div>
+    <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <select class="form-select" id="subject_id" name="subject_id" required>
+            {% for subject in subjects %}
+            <option value="{{ subject.id }}">{{ subject.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Question</button>
+</form>
+{% endblock %}

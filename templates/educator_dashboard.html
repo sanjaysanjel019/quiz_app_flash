@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Educator Dashboard</h1>
+<h2>Your Subjects:</h2>
+<ul>
+    {% for subject in subjects %}
+    <li>{{ subject.name }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('add_question') }}" class="btn btn-primary">Add Question</a>
+{% endblock %}
